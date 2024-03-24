@@ -1,4 +1,4 @@
-package com.example.todolist.presentation.notes.components
+package com.example.todolist.presentation.notes
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
