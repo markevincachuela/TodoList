@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.todolist.domain.repository.NoteRepository
 import com.example.todolist.domain.use_case.AddNote
 import com.example.todolist.domain.use_case.DeleteNoteUseCase
+import com.example.todolist.domain.use_case.GetNoteUseCase
 import com.example.todolist.domain.use_case.GetNotesUseCase
 import com.example.todolist.domain.use_case.NoteUseCases
 import com.example.todolist.feature_note.data_source.NoteDatabase
@@ -42,7 +43,8 @@ object AppModule {
         return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repo),
             deleteNoteUseCase = DeleteNoteUseCase(repo),
-            addNote = AddNote(repo)
+            addNote = AddNote(repo),
+            getNoteUseCase = GetNoteUseCase(repo)
         )
     }
 }
