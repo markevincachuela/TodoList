@@ -6,6 +6,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -39,6 +41,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.todolist.presentation.notes.NotesEvent
 import com.example.todolist.presentation.notes.NotesViewModel
+import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -116,10 +119,25 @@ fun NotesScreen(
                     items(state.notes) { note ->
                         NoteItem(
                             note = note,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
 
-                        }
+                                },
+                            onClickDelete = {
+                                viewModel.onEvent(NotesEvent.DeleteNote(note))
+                                scope.launch {
+                                   val result = scaffoldState.showSnackbar(
+                                        message = "Note deleted",
+                                        actionLabel = "Undo"
+                                    )
+                                    if (result == SnackbarResult.ActionPerformed) {
+                                        viewModel.onEvent(NotesEvent.RestoreNote)
+                                    }
+                                }
+                            }
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
 
                 }
