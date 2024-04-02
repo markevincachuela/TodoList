@@ -1,8 +1,8 @@
 package com.example.todolist.domain.model
 
-import androidx.compose.ui.graphics.Color
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.todolist.ui.theme.*
 
 @Entity
 data class Note(
@@ -13,7 +13,7 @@ data class Note(
     val color: Int,
 ) {
     companion object {
-        val noteColors = listOf(Color.Red,Color.Blue, Color.Green)
+        val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
     }
 }
 
