@@ -62,7 +62,10 @@ fun NotesScreen(
                 },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Add note"
+                )
             }
         },
         snackbarHost = { SnackbarHost(hostState = scaffoldState) }
@@ -78,8 +81,8 @@ fun NotesScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Your note",
-                    style = MaterialTheme.typography.bodyMedium
+                    text = "Your notes",
+                    style = MaterialTheme.typography.displaySmall
                 )
                 IconButton(
                     onClick = {

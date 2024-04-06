@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.example.todolist.domain.model.Note
+import java.text.DateFormat
 
 @Composable
 fun NoteItem(
@@ -43,9 +44,9 @@ fun NoteItem(
             modifier = Modifier.matchParentSize()
         ) {
             val clipPath = Path().apply {
-                lineTo(size.width - cutCornerSize.toPx(),0f)
+                lineTo(size.width - cutCornerSize.toPx(), 0f)
                 lineTo(size.width, cutCornerSize.toPx())
-                lineTo(size.width,size.height)
+                lineTo(size.width, size.height)
                 lineTo(0f, size.height)
                 close()
             }
@@ -60,7 +61,8 @@ fun NoteItem(
                         ColorUtils.blendARGB(
                             note.color,
                             0x000000,
-                            0.2F)
+                            0.2F
+                        )
                     ),
                     topLeft = Offset(size.width - cutCornerSize.toPx(), -100f),
                     size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f),
@@ -74,6 +76,14 @@ fun NoteItem(
                 .padding(16.dp)
                 .padding(end = 32.dp)
         ) {
+            val dateTime = note.timestamp
+            val convertTimeDate = DateFormat.getInstance().format(dateTime)
+            Text(
+                text = convertTimeDate,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+                maxLines = 1
+            )
             Text(
                 text = note.title,
                 style = MaterialTheme.typography.headlineMedium,
@@ -84,7 +94,7 @@ fun NoteItem(
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = note.content,
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis
