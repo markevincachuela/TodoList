@@ -17,9 +17,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.todolist.presentation.add_edit_note.components.AddEditNoteScreen
-import com.example.todolist.presentation.notes.components.NotesScreen
-import com.example.todolist.presentation.util.Screen
+import com.example.todolist.feature_note.presentation.add_edit_note.components.AddEditNoteScreen
+import com.example.todolist.feature_note.presentation.notes.components.NotesScreen
+import com.example.todolist.feature_note.presentation.util.Screen
 import com.example.todolist.ui.theme.TodoListTheme
 import dagger.hilt.android.AndroidEntryPoint
 
