@@ -2,12 +2,12 @@ package com.example.todolist.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.todolist.domain.repository.NoteRepository
-import com.example.todolist.domain.use_case.AddNote
-import com.example.todolist.domain.use_case.DeleteNoteUseCase
-import com.example.todolist.domain.use_case.GetNoteUseCase
-import com.example.todolist.domain.use_case.GetNotesUseCase
-import com.example.todolist.domain.use_case.NoteUseCases
+import com.example.todolist.feature_note.domain.repository.NoteRepository
+import com.example.todolist.feature_note.domain.use_case.AddNote
+import com.example.todolist.feature_note.domain.use_case.DeleteNoteUseCase
+import com.example.todolist.feature_note.domain.use_case.GetNoteUseCase
+import com.example.todolist.feature_note.domain.use_case.GetNotesUseCase
+import com.example.todolist.feature_note.domain.use_case.NoteUseCases
 import com.example.todolist.feature_note.data_source.NoteDatabase
 import com.example.todolist.feature_note.repository.NoteRepositoryImpl
 import dagger.Module

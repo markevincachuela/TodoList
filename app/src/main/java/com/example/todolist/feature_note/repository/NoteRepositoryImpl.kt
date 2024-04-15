@@ -1,7 +1,7 @@
 package com.example.todolist.feature_note.repository
 
-import com.example.todolist.domain.model.Note
-import com.example.todolist.domain.repository.NoteRepository
+import com.example.todolist.feature_note.domain.model.Note
+import com.example.todolist.feature_note.domain.repository.NoteRepository
 import com.example.todolist.feature_note.data_source.NoteDao
 import kotlinx.coroutines.flow.Flow
 

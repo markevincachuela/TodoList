@@ -2,7 +2,7 @@ package com.example.todolist.feature_note.data_source
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.todolist.domain.model.Note
+import com.example.todolist.feature_note.domain.model.Note
 
 @Database(
     entities = [Note::class],
